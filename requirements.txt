@@ -1,0 +1,8 @@
+Flask==1.0.2
+Flask-Script==2.0.6
+Flask-SQLAlchemy
+PyMySQL
+Flask-Testing
+gunicorn==19.7.1
+coverage==4.4.2
+flake8==3.5.0
