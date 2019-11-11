@@ -16,7 +16,7 @@ before_script:
 
 script:
   - docker-compose run users-service python manage.py test
-  - docker-compose run users-service flask8 porject
+  - docker-compose run users-service flake8 porject
 
 after_script:
   - docker-compose down
