@@ -125,6 +125,19 @@ class TestUserService(BaseTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'No users!', response.data)
 
+    def test_main_add_user(self):
+        """前端页面添加一个新的用户"""
+        with self.client:
+            response = self.client.post(
+                '/',
+                data=dict(username='test', email='test@test.com'),
+                follow_redirects=True
+            )
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'All Users', response.data)
+            self.assertNotIn(b'No users!', response.data)
+            self.assertIn(b'test', response.data)
+
     def test_main_with_users(self):
         """有多个用户的场景"""
         db.session.add(User(username='test', email='test@test.com'))
